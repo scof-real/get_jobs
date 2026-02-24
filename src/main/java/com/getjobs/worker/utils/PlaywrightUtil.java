@@ -12,6 +12,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
+import java.util.Optional;
 
 /**
  * Playwright工具类，提供浏览器自动化相关的功能
@@ -91,6 +92,19 @@ public class PlaywrightUtil {
 //                log.error("Browser console error: {}", message.text());
 //            }
 //        });
+<<<<<<< Updated upstream:src/main/java/com/getjobs/worker/utils/PlaywrightUtil.java
+=======
+    }
+
+    /**
+     * 设置默认设备类型
+     *
+     * @param deviceType 设备类型
+     */
+    public static void setDefaultDeviceType(DeviceType deviceType) {
+        defaultDeviceType = deviceType;
+        log.info("已设置默认设备类型为: {}", deviceType);
+>>>>>>> Stashed changes:src/main/java/utils/PlaywrightUtil.java
     }
 
     /**
@@ -145,6 +159,27 @@ public class PlaywrightUtil {
     }
 
     /**
+<<<<<<< Updated upstream:src/main/java/com/getjobs/worker/utils/PlaywrightUtil.java
+=======
+     * 使用默认设备类型导航到指定URL
+     *
+     * @param url 目标URL
+     */
+    public static void navigate(String url) {
+        navigate(url, defaultDeviceType);
+    }
+
+    /**
+     * 移动设备导航到指定URL (兼容旧代码)
+     *
+     * @param url 目标URL
+     */
+    public static void mobileNavigate(String url) {
+        navigate(url, DeviceType.MOBILE);
+    }
+
+    /**
+>>>>>>> Stashed changes:src/main/java/utils/PlaywrightUtil.java
      * 等待指定时间（秒）
      *
      * @param seconds 等待的秒数
@@ -173,6 +208,15 @@ public class PlaywrightUtil {
     }
 
     /**
+     * 兼容SeleniumUtil的sleepByMilliSeconds方法
+     *
+     * @param milliSeconds 等待的毫秒数
+     */
+    public static void sleepByMilliSeconds(int milliSeconds) {
+        sleepMillis(milliSeconds);
+    }
+
+    /**
      * 查找元素
      *
      * @param selector   元素选择器
@@ -184,6 +228,19 @@ public class PlaywrightUtil {
     }
 
     /**
+<<<<<<< Updated upstream:src/main/java/com/getjobs/worker/utils/PlaywrightUtil.java
+=======
+     * 使用默认设备类型查找元素
+     *
+     * @param selector 元素选择器
+     * @return 元素对象，如果未找到则返回null
+     */
+    public static Locator findElement(String selector) {
+        return findElement(selector, defaultDeviceType);
+    }
+
+    /**
+>>>>>>> Stashed changes:src/main/java/utils/PlaywrightUtil.java
      * 查找元素并等待直到可见
      *
      * @param selector   元素选择器
@@ -198,6 +255,20 @@ public class PlaywrightUtil {
     }
 
     /**
+<<<<<<< Updated upstream:src/main/java/com/getjobs/worker/utils/PlaywrightUtil.java
+=======
+     * 使用默认设备类型查找元素并等待直到可见
+     *
+     * @param selector 元素选择器
+     * @param timeout  超时时间（毫秒）
+     * @return 元素对象，如果未找到则返回null
+     */
+    public static Locator waitForElement(String selector, int timeout) {
+        return waitForElement(selector, timeout, defaultDeviceType);
+    }
+
+    /**
+>>>>>>> Stashed changes:src/main/java/utils/PlaywrightUtil.java
      * 使用默认超时时间和默认设备类型等待元素
      *
      * @param selector 元素选择器
@@ -223,6 +294,18 @@ public class PlaywrightUtil {
     }
 
     /**
+<<<<<<< Updated upstream:src/main/java/com/getjobs/worker/utils/PlaywrightUtil.java
+=======
+     * 使用默认设备类型点击元素
+     *
+     * @param selector 元素选择器
+     */
+    public static void click(String selector) {
+        click(selector, defaultDeviceType);
+    }
+
+    /**
+>>>>>>> Stashed changes:src/main/java/utils/PlaywrightUtil.java
      * 填写表单字段
      *
      * @param selector   元素选择器
@@ -239,6 +322,19 @@ public class PlaywrightUtil {
     }
 
     /**
+<<<<<<< Updated upstream:src/main/java/com/getjobs/worker/utils/PlaywrightUtil.java
+=======
+     * 使用默认设备类型填写表单字段
+     *
+     * @param selector 元素选择器
+     * @param text     要输入的文本
+     */
+    public static void fill(String selector, String text) {
+        fill(selector, text, defaultDeviceType);
+    }
+
+    /**
+>>>>>>> Stashed changes:src/main/java/utils/PlaywrightUtil.java
      * 模拟人类输入文本（逐字输入）
      *
      * @param selector   元素选择器
@@ -268,6 +364,21 @@ public class PlaywrightUtil {
     }
 
     /**
+<<<<<<< Updated upstream:src/main/java/com/getjobs/worker/utils/PlaywrightUtil.java
+=======
+     * 使用默认设备类型模拟人类输入文本
+     *
+     * @param selector 元素选择器
+     * @param text     要输入的文本
+     * @param minDelay 字符间最小延迟（毫秒）
+     * @param maxDelay 字符间最大延迟（毫秒）
+     */
+    public static void typeHumanLike(String selector, String text, int minDelay, int maxDelay) {
+        typeHumanLike(selector, text, minDelay, maxDelay, defaultDeviceType);
+    }
+
+    /**
+>>>>>>> Stashed changes:src/main/java/utils/PlaywrightUtil.java
      * 获取元素文本
      *
      * @param selector   元素选择器
@@ -284,6 +395,19 @@ public class PlaywrightUtil {
     }
 
     /**
+<<<<<<< Updated upstream:src/main/java/com/getjobs/worker/utils/PlaywrightUtil.java
+=======
+     * 使用默认设备类型获取元素文本
+     *
+     * @param selector 元素选择器
+     * @return 元素文本内容
+     */
+    public static String getText(String selector) {
+        return getText(selector, defaultDeviceType);
+    }
+
+    /**
+>>>>>>> Stashed changes:src/main/java/utils/PlaywrightUtil.java
      * 获取元素属性值
      *
      * @param selector      元素选择器
@@ -301,6 +425,20 @@ public class PlaywrightUtil {
     }
 
     /**
+<<<<<<< Updated upstream:src/main/java/com/getjobs/worker/utils/PlaywrightUtil.java
+=======
+     * 使用默认设备类型获取元素属性值
+     *
+     * @param selector      元素选择器
+     * @param attributeName 属性名
+     * @return 属性值
+     */
+    public static String getAttribute(String selector, String attributeName) {
+        return getAttribute(selector, attributeName, defaultDeviceType);
+    }
+
+    /**
+>>>>>>> Stashed changes:src/main/java/utils/PlaywrightUtil.java
      * 截取页面截图并保存
      *
      * @param path       保存路径
@@ -316,6 +454,18 @@ public class PlaywrightUtil {
     }
 
     /**
+<<<<<<< Updated upstream:src/main/java/com/getjobs/worker/utils/PlaywrightUtil.java
+=======
+     * 使用默认设备类型截取页面截图并保存
+     *
+     * @param path 保存路径
+     */
+    public static void screenshot(String path) {
+        screenshot(path, defaultDeviceType);
+    }
+
+    /**
+>>>>>>> Stashed changes:src/main/java/utils/PlaywrightUtil.java
      * 截取特定元素的截图
      *
      * @param selector   元素选择器
@@ -332,6 +482,19 @@ public class PlaywrightUtil {
     }
 
     /**
+<<<<<<< Updated upstream:src/main/java/com/getjobs/worker/utils/PlaywrightUtil.java
+=======
+     * 使用默认设备类型截取特定元素的截图
+     *
+     * @param selector 元素选择器
+     * @param path     保存路径
+     */
+    public static void screenshotElement(String selector, String path) {
+        screenshotElement(selector, path, defaultDeviceType);
+    }
+
+    /**
+>>>>>>> Stashed changes:src/main/java/utils/PlaywrightUtil.java
      * 保存Cookie到文件
      *
      * @param path       保存路径
@@ -432,6 +595,146 @@ public class PlaywrightUtil {
         loadCookies(path, defaultDeviceType);
     }
 
+<<<<<<< Updated upstream:src/main/java/com/getjobs/worker/utils/PlaywrightUtil.java
+=======
+    /**
+     * 执行JavaScript代码
+     *
+     * @param script     JavaScript代码
+     * @param deviceType 设备类型
+     */
+    public static void evaluate(String script, DeviceType deviceType) {
+        try {
+            getPage(deviceType).evaluate(script);
+        } catch (PlaywrightException e) {
+            log.error("执行JavaScript失败 (设备类型: {})", deviceType, e);
+        }
+    }
+
+    /**
+     * 使用默认设备类型执行JavaScript代码
+     *
+     * @param script JavaScript代码
+     */
+    public static void evaluate(String script) {
+        evaluate(script, defaultDeviceType);
+    }
+
+    /**
+     * 等待页面加载完成
+     *
+     * @param deviceType 设备类型
+     */
+    public static void waitForPageLoad(DeviceType deviceType) {
+        getPage(deviceType).waitForLoadState(LoadState.DOMCONTENTLOADED);
+        getPage(deviceType).waitForLoadState(LoadState.NETWORKIDLE);
+    }
+
+    /**
+     * 检查元素是否可见
+     *
+     * @param selector   元素选择器
+     * @param deviceType 设备类型
+     * @return 是否可见
+     */
+    public static boolean elementIsVisible(String selector, DeviceType deviceType) {
+        try {
+            return getPage(deviceType).locator(selector).isVisible();
+        } catch (PlaywrightException e) {
+            return false;
+        }
+    }
+
+    /**
+     * 使用默认设备类型检查元素是否可见
+     *
+     * @param selector 元素选择器
+     * @return 是否可见
+     */
+    public static boolean elementIsVisible(String selector) {
+        return elementIsVisible(selector, defaultDeviceType);
+    }
+
+    /**
+     * 选择下拉列表选项（通过文本）
+     *
+     * @param selector   选择器
+     * @param optionText 选项文本
+     * @param deviceType 设备类型
+     */
+    public static void selectByText(String selector, String optionText, DeviceType deviceType) {
+        getPage(deviceType).locator(selector).selectOption(new SelectOption().setLabel(optionText));
+    }
+
+    /**
+     * 使用默认设备类型选择下拉列表选项（通过文本）
+     *
+     * @param selector   选择器
+     * @param optionText 选项文本
+     */
+    public static void selectByText(String selector, String optionText) {
+        selectByText(selector, optionText, defaultDeviceType);
+    }
+
+    /**
+     * 选择下拉列表选项（通过值）
+     *
+     * @param selector   选择器
+     * @param value      选项值
+     * @param deviceType 设备类型
+     */
+    public static void selectByValue(String selector, String value, DeviceType deviceType) {
+        getPage(deviceType).locator(selector).selectOption(new SelectOption().setValue(value));
+    }
+
+    /**
+     * 使用默认设备类型选择下拉列表选项（通过值）
+     *
+     * @param selector 选择器
+     * @param value    选项值
+     */
+    public static void selectByValue(String selector, String value) {
+        selectByValue(selector, value, defaultDeviceType);
+    }
+
+    /**
+     * 获取当前页面标题
+     *
+     * @param deviceType 设备类型
+     * @return 页面标题
+     */
+    public static String getTitle(DeviceType deviceType) {
+        return getPage(deviceType).title();
+    }
+
+    /**
+     * 使用默认设备类型获取当前页面标题
+     *
+     * @return 页面标题
+     */
+    public static String getTitle() {
+        return getTitle(defaultDeviceType);
+    }
+
+    /**
+     * 获取当前页面URL
+     *
+     * @param deviceType 设备类型
+     * @return 页面URL
+     */
+    public static String getUrl(DeviceType deviceType) {
+        return getPage(deviceType).url();
+    }
+
+    /**
+     * 使用默认设备类型获取当前页面URL
+     *
+     * @return 页面URL
+     */
+    public static String getUrl() {
+        return getUrl(defaultDeviceType);
+    }
+>>>>>>> Stashed changes:src/main/java/utils/PlaywrightUtil.java
 
     /**
      * 初始化Stealth模式（使浏览器更难被检测为自动化工具）
@@ -527,6 +830,16 @@ public class PlaywrightUtil {
     }
 
     /**
+<<<<<<< Updated upstream:src/main/java/com/getjobs/worker/utils/PlaywrightUtil.java
+=======
+     * 使用默认设备类型设置默认请求头
+     */
+    public static void setDefaultHeaders() {
+        setDefaultHeaders(defaultDeviceType);
+    }
+
+    /**
+>>>>>>> Stashed changes:src/main/java/utils/PlaywrightUtil.java
      * 获取当前设备类型的Page对象
      *
      * @param deviceType 设备类型
@@ -559,7 +872,11 @@ public class PlaywrightUtil {
      */
     public static void setCookie(String name, String value, String domain, String path,
                                  Double expires, Boolean secure, Boolean httpOnly, DeviceType deviceType) {
+<<<<<<< Updated upstream:src/main/java/com/getjobs/worker/utils/PlaywrightUtil.java
         Cookie cookie = new Cookie(name, value);
+=======
+        com.microsoft.playwright.options.Cookie cookie = new com.microsoft.playwright.options.Cookie(name, value);
+>>>>>>> Stashed changes:src/main/java/utils/PlaywrightUtil.java
         cookie.domain = domain;
         cookie.path = path;
 
@@ -583,6 +900,7 @@ public class PlaywrightUtil {
     }
 
     /**
+<<<<<<< Updated upstream:src/main/java/com/getjobs/worker/utils/PlaywrightUtil.java
      * 检查Cookie文件是否有效
      *
      * @param cookiePath Cookie文件路径
@@ -594,6 +912,79 @@ public class PlaywrightUtil {
 
     /**
      * 带错误消息的元素查找
+     *
+     * @param selector    元素选择器
+     * @param message     错误消息
+     * @param deviceType  设备类型
+     * @return 元素对象的Optional包装
+=======
+     * 使用默认设备类型设置自定义Cookie
+     *
+     * @param name     Cookie名称
+     * @param value    Cookie值
+     * @param domain   Cookie域
+     * @param path     Cookie路径
+     * @param expires  过期时间（可选）
+     * @param secure   是否安全（可选）
+     * @param httpOnly 是否仅HTTP（可选）
+     */
+    public static void setCookie(String name, String value, String domain, String path,
+                                 Double expires, Boolean secure, Boolean httpOnly) {
+        setCookie(name, value, domain, path, expires, secure, httpOnly, defaultDeviceType);
+    }
+
+    /**
+     * 简化的设置Cookie方法
+     *
+     * @param name       Cookie名称
+     * @param value      Cookie值
+     * @param domain     Cookie域
+     * @param path       Cookie路径
+     * @param deviceType 设备类型
+>>>>>>> Stashed changes:src/main/java/utils/PlaywrightUtil.java
+     */
+    public static Optional<Locator> findElementWithMessage(String selector, String message, DeviceType deviceType) {
+        try {
+            Locator locator = getPage(deviceType).locator(selector);
+            // 检查元素是否存在
+            if (locator.count() > 0) {
+                return Optional.of(locator);
+            } else {
+                log.error(message);
+                return Optional.empty();
+            }
+        } catch (Exception e) {
+            log.error(message + ": " + e.getMessage());
+            return Optional.empty();
+        }
+    }
+
+<<<<<<< Updated upstream:src/main/java/com/getjobs/worker/utils/PlaywrightUtil.java
+=======
+    /**
+     * 使用默认设备类型的简化设置Cookie方法
+     *
+     * @param name   Cookie名称
+     * @param value  Cookie值
+     * @param domain Cookie域
+     * @param path   Cookie路径
+     */
+    public static void setCookie(String name, String value, String domain, String path) {
+        setCookie(name, value, domain, path, null, null, null, defaultDeviceType);
+    }
+
+    /**
+     * 检查Cookie文件是否有效（从SeleniumUtil移植）
+     *
+     * @param cookiePath Cookie文件路径
+     * @return 文件是否存在
+     */
+    public static boolean isCookieValid(String cookiePath) {
+        return Files.exists(Paths.get(cookiePath));
+    }
+
+    /**
+     * 带错误消息的元素查找（从SeleniumUtil移植）
      *
      * @param selector    元素选择器
      * @param message     错误消息
@@ -616,4 +1007,15 @@ public class PlaywrightUtil {
         }
     }
 
+    /**
+     * 使用默认设备类型的带错误消息的元素查找
+     *
+     * @param selector 元素选择器
+     * @param message  错误消息
+     * @return 元素对象的Optional包装
+     */
+    public static Optional<Locator> findElementWithMessage(String selector, String message) {
+        return findElementWithMessage(selector, message, defaultDeviceType);
+    }
+>>>>>>> Stashed changes:src/main/java/utils/PlaywrightUtil.java
 }
